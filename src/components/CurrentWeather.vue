@@ -31,7 +31,9 @@
         </p>
       </div>
       <div style="width: 30%; height: 100%">
-        <p style="font-size: 12px; color: grey; font-weight: bold">Northwest</p>
+        <p style="font-size: 12px; color: grey; font-weight: bold">
+          {{ deg }}
+        </p>
       </div>
       <div style="width: 30%; height: 100%">
         <p style="font-size: 12px; color: grey; font-weight: bold">
@@ -57,6 +59,19 @@ export default {
     },
     nameCity() {
       return this.data.name;
+    },
+    deg() {
+      if (this.data.wind.deg > 337.5) return "Northerly";
+      if (this.data.wind.deg > 292.5) return "North Westerly";
+      if (this.data.wind.deg > 247.5) return "Westerly";
+      if (this.data.wind.deg > 202.5) return "South Westerly";
+      if (this.data.wind.deg > 157.5) return "Southerly";
+      if (this.data.wind.deg > 122.5) return "South Easterly";
+      if (this.data.wind.deg > 67.5) return "Easterly";
+      if (this.data.wind.deg > 22.5) {
+        return "North Easterly";
+      }
+      return "Northerly";
     },
   },
   data() {

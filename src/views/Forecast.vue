@@ -40,13 +40,14 @@
       <main class="main-section">
         <div class="days-forecast">
           <p class="title"><strong>3 Days</strong> Forecast</p>
-          <div class="forecast-container">
+          <div class="forecast-container" v-if="daysForecast.length !== 0">
             <day-forecast
               v-for="(day, index) of daysForecast"
               :key="index"
               :data="day"
             ></day-forecast>
           </div>
+          <div v-else class="lds-dual-ring"></div>
         </div>
         <div class="places-visit">
           <p class="title"><strong>Place to</strong> Visit</p>
@@ -145,7 +146,7 @@
             </div>
           </div>
         </div>
-        <section class="france-section" v-if="currentWeatherFr">
+        <section class="france-section" v-if="display">
           <p class="title"><strong>Weather in</strong> France</p>
           <current-weather
             v-for="(city, index) of currentWeatherFr"
@@ -174,6 +175,9 @@
             </div>
           </div>
         </section>
+        <section v-else class="france-section">
+          <div class="lds-dual-ring"></div>
+        </section>
       </main>
     </section>
   </div>
@@ -201,6 +205,25 @@ export default {
       currentWeatherBog: [],
       currentWeatherFr: [],
       urlIcon: "http://openweathermap.org/img/w/",
+      baseForecastUrl:
+        "https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=hourly,minutely,current&units=metric&appid=f8e7c83b8d24e6bbafac702ccd3e2b64",
+      baseCurrentUrl:
+        "https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&units=metric&appid=f8e7c83b8d24e6bbafac702ccd3e2b64",
+      display: false,
+      cities: {
+        bogota: {
+          lat: 4.6097,
+          lon: -74.0817,
+        },
+        lyon: {
+          lat: 45.7485,
+          lon: 4.8467,
+        },
+        paris: {
+          lat: 48.8534,
+          lon: 2.3488,
+        },
+      },
     };
   },
   mounted() {
@@ -209,84 +232,76 @@ export default {
   methods: {
     init() {
       this.getCurrentWeatherBog();
-      this.getCurrentWeatherLy();
       this.getCurrentWeatherFr();
       this.getDaysForecast();
     },
     getCurrentWeatherBog() {
-      this.$http
-        .get(
-          "https://api.openweathermap.org/data/2.5/weather?lat=4.6097&lon=-74.0817&units=metric&appid=f8e7c83b8d24e6bbafac702ccd3e2b64"
-        )
-        .then(
-          (response) => {
-            // get body data
-            this.currentWeatherBog = response.body;
-            this.urlIcon += this.currentWeatherBog.weather[0].icon + ".png";
-            //console.log(this.currentWeatherBog);
-          },
-          (response) => {
-            console.log(response);
-            // error callback
-          }
-        );
-    },
-    getCurrentWeatherLy() {
-      this.$http
-        .get(
-          "https://api.openweathermap.org/data/2.5/weather?lat=45.7485&lon=4.8467&units=metric&appid=f8e7c83b8d24e6bbafac702ccd3e2b64"
-        )
-        .then(
-          (response) => {
-            // get body data
-            this.currentWeatherFr[0] = response.body;
-            this.currentWeatherFr[0].styleCard = { top: "-115px" };
-          },
-          (response) => {
-            console.log(response);
-            // error callback
-          }
-        );
+      this.$http.get(this.getUrl(true, this.cities.bogota)).then(
+        (response) => {
+          // get body data
+          this.currentWeatherBog = response.body;
+          this.urlIcon += this.currentWeatherBog.weather[0].icon + ".png";
+        },
+        (response) => {
+          // error callback
+          console.log(response);
+        }
+      );
     },
     getCurrentWeatherFr() {
-      this.$http
-        .get(
-          "https://api.openweathermap.org/data/2.5/weather?q=Paris&units=metric&appid=f8e7c83b8d24e6bbafac702ccd3e2b64"
-        )
-        .then(
-          (response) => {
-            // get body data
-            this.currentWeatherFr[1] = response.body;
-            this.currentWeatherFr[1].styleCard = { top: "-95px" };
-            //console.log(this.currentWeatherFr);
-          },
-          (response) => {
-            console.log(response);
-            // error callback
-          }
-        );
+      this.$http.get(this.getUrl(true, this.cities.lyon)).then(
+        (response) => {
+          // get body data
+          this.currentWeatherFr[0] = response.body;
+          this.currentWeatherFr[0].styleCard = { top: "-115px" };
+
+          this.$http.get(this.getUrl(true, this.cities.paris)).then(
+            (response) => {
+              // get body data
+              this.currentWeatherFr[1] = response.body;
+              this.currentWeatherFr[1].styleCard = { top: "-95px" };
+              this.display = true;
+            },
+            (response) => {
+              console.log(response);
+              // error callback
+            }
+          );
+        },
+        (response) => {
+          // error callback
+          console.log(response);
+        }
+      );
     },
     getDaysForecast() {
-      this.$http
-        .get(
-          "https://api.openweathermap.org/data/2.5/onecall?lat=4.6097&lon=-74.0817&exclude=hourly,minutely,current&units=metric&appid=f8e7c83b8d24e6bbafac702ccd3e2b64"
-        )
-        .then(
-          (response) => {
-            // get body data
-            let daily = response.body.daily;
-            daily.shift(); //delete current day
+      this.$http.get(this.getUrl(false, this.cities.bogota)).then(
+        (response) => {
+          // get body data
+          let daily = response.body.daily;
+          daily.shift(); //delete current day
 
-            for (let day = 1; day <= 3; day++) {
-              this.daysForecast.push(daily.shift());
-            }
-            //console.log(this.daysForecast);
-          },
-          (response) => {
-            console.log(response);
-            // error callback
+          for (let day = 1; day <= 3; day++) {
+            this.daysForecast.push(daily.shift());
           }
-        );
+        },
+        (response) => {
+          // error callback
+          console.log(response);
+        }
+      );
+    },
+    getUrl(path, params) {
+      var route = "";
+      if (path) {
+        route = this.baseCurrentUrl;
+      } else {
+        route = this.baseForecastUrl;
+      }
+      for (var key in params) {
+        route = route.replace("{" + key + "}", params[key]);
+      }
+      return route;
     },
   },
 };
