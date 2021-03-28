@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <section class="wrap-section">
-      <div class="bogota-section">
+      <div class="header-section">
         <div class="location">
           <p class="location-name">
             <span class="material-icons" style="font-size: 32px"
@@ -191,6 +191,13 @@
                   ><strong>Fountain of Health</strong>
                 </p>
               </div>
+              <div class="more">
+                <span
+                  class="material-icons"
+                  style="font-size: 32px; color: #fff"
+                  >add</span
+                >
+              </div>
               <img
                 style="width: 100%; height: auto"
                 src="../assets/prueba3.jpg"
@@ -201,6 +208,7 @@
           </div>
         </div>
         <section class="france-section">
+          <p class="title"><strong>Weather in</strong> France</p>
           <div class="card" style="top: -115px">
             <div class="header-card">
               <div class="icon-container">
@@ -289,7 +297,7 @@
             class="card"
             style="
               top: -75px;
-              height: 188px;
+              height: 190px;
               border: dashed 2px rgba(128, 128, 128, 0.2);
               box-shadow: none;
             "
@@ -297,7 +305,7 @@
             <button class="add-buttom">
               <strong>Add Locations</strong>
             </button>
-            <div class="weather-icon">
+            <div class="city-icon">
               <img
                 style="width: 100%; height: auto"
                 src="../assets/city.png"
