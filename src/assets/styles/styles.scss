@@ -127,16 +127,17 @@
               .day {
                 margin: 0;
                 margin-bottom: 3px;
-                padding: 0 22px;
+                padding: 0 10px;
                 text-align: left;
+                font-size: 14.5px;
                 color: grey;
               }
               .condition {
                 margin: 0;
                 margin-bottom: 3px;
-                padding: 0 22px;
+                padding: 0 10px;
                 text-align: left;
-                font-size: 14px;
+                font-size: 12px;
                 color: grey;
               }
             }
@@ -151,7 +152,7 @@
                 width: 100%;
                 text-align: center;
                 margin: 0;
-                font-size: 18px;
+                font-size: 15px;
                 color: #fff;
               }
             }
@@ -263,7 +264,7 @@
               width: 30%;
               height: 100%;
               background-color: #7c6ce4;
-              border-radius: 30px;
+              border-radius: 40px;
               z-index: 999;
               display: flex;
               flex-direction: column;
@@ -382,7 +383,7 @@
       flex-direction: column;
       justify-content: center;
       .celsius {
-        font-size: 32px;
+        font-size: 28px;
         margin: 0;
         padding: 2px 0px 2px 10px;
         border-right: solid 2px rgba(128, 128, 128, 0.2);
@@ -572,6 +573,8 @@
         position: static !important;
         width: 50% !important;
         margin-bottom: 30px;
+        box-shadow: none !important;
+        border: solid 1px rgba(128, 128, 128, 0.3);
         .city-icon {
           img {
             width: 80% !important;
@@ -636,7 +639,7 @@
           height: 80px !important;
           .component-info {
             .day {
-              font-size: 14px !important;
+              font-size: 12.5px !important;
             }
             .condition {
               font-size: 12px !important;
@@ -644,7 +647,7 @@
           }
           .component-temp {
             .temp {
-              font-size: 16px !important;
+              font-size: 14px !important;
             }
           }
         }

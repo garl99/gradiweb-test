@@ -20,17 +20,17 @@
             src="../assets/bogota-city.jpg"
             alt="background-bogota"
           />
-          <div class="bogota-weather">
+          <div class="bogota-weather" v-if="currentWeatherBog.main">
             <div class="weather-icon">
               <img
                 class="responsive-image-half"
-                src="../assets/clear.png"
+                :src="urlIcon"
                 alt="weather icon"
               />
             </div>
             <div class="weather-temp">
-              <p style="margin: 0; font-size: 32px; color: #fff">
-                <strong>31°</strong>
+              <p style="margin: 0; font-size: 28px; color: #fff">
+                <strong>{{ currentTemp }}°C</strong>
               </p>
             </div>
           </div>
@@ -41,73 +41,11 @@
         <div class="days-forecast">
           <p class="title"><strong>3 Days</strong> Forecast</p>
           <div class="forecast-container">
-            <div class="component">
-              <div class="component-icon">
-                <div style="margin-left: 10px">
-                  <img
-                    style="width: 100%; height: auto"
-                    src="../assets/clear.png"
-                    alt="background-bogota"
-                  />
-                </div>
-              </div>
-              <div class="component-info">
-                <p class="day">
-                  <strong>Friday</strong>
-                </p>
-                <p class="condition">Clear</p>
-              </div>
-              <div class="component-temp">
-                <p class="temp">
-                  <strong>32° / 20°</strong>
-                </p>
-              </div>
-            </div>
-
-            <div class="component">
-              <div class="component-icon">
-                <div style="margin-left: 10px">
-                  <img
-                    style="width: 100%; height: auto"
-                    src="../assets/rain.png"
-                    alt="background-bogota"
-                  />
-                </div>
-              </div>
-              <div class="component-info">
-                <p class="day">
-                  <strong>Friday</strong>
-                </p>
-                <p class="condition">Rain</p>
-              </div>
-              <div class="component-temp background-light">
-                <p class="temp font-black">
-                  <strong>32° / 20°</strong>
-                </p>
-              </div>
-            </div>
-            <div class="component">
-              <div class="component-icon">
-                <div style="margin-left: 10px">
-                  <img
-                    style="width: 100%; height: auto"
-                    src="../assets/clear.png"
-                    alt="background-bogota"
-                  />
-                </div>
-              </div>
-              <div class="component-info">
-                <p class="day">
-                  <strong>Friday</strong>
-                </p>
-                <p class="condition">Clear</p>
-              </div>
-              <div class="component-temp background-light">
-                <p class="temp font-black">
-                  <strong>32° / 20°</strong>
-                </p>
-              </div>
-            </div>
+            <day-forecast
+              v-for="(day, index) of daysForecast"
+              :key="index"
+              :data="day"
+            ></day-forecast>
           </div>
         </div>
         <div class="places-visit">
@@ -207,92 +145,14 @@
             </div>
           </div>
         </div>
-        <section class="france-section">
+        <section class="france-section" v-if="currentWeatherFr">
           <p class="title"><strong>Weather in</strong> France</p>
-          <div class="card" style="top: -115px">
-            <div class="header-card">
-              <div class="icon-container">
-                <div class="weather-icon">
-                  <img
-                    class="responsive-image-half"
-                    src="../assets/clear.png"
-                    alt="clear time"
-                  />
-                </div>
-              </div>
-              <div class="weather-container">
-                <div class="temp-container">
-                  <p class="celsius">32°</p>
-                </div>
-
-                <div class="city-container">
-                  <p class="city">
-                    <strong>Lyon</strong>
-                  </p>
-                  <p class="country">France</p>
-                </div>
-              </div>
-            </div>
-            <div class="footer-card">
-              <div style="width: 40%; height: 100%">
-                <p style="font-size: 12px; color: grey; font-weight: bold">
-                  Humedity: 64%
-                </p>
-              </div>
-              <div style="width: 30%; height: 100%">
-                <p style="font-size: 12px; color: grey; font-weight: bold">
-                  Northwest
-                </p>
-              </div>
-              <div style="width: 30%; height: 100%">
-                <p style="font-size: 12px; color: grey; font-weight: bold">
-                  8.3 km/h
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="card" style="top: -95px">
-            <div class="header-card">
-              <div class="icon-container">
-                <div class="weather-icon">
-                  <img
-                    class="responsive-image-half"
-                    src="../assets/rain.png"
-                    alt="rainy time"
-                  />
-                </div>
-              </div>
-              <div class="weather-container">
-                <div class="temp-container">
-                  <p class="celsius">32°</p>
-                </div>
-
-                <div class="city-container">
-                  <p class="city">
-                    <strong>Paris</strong>
-                  </p>
-                  <p class="country">France</p>
-                </div>
-              </div>
-            </div>
-            <div class="footer-card">
-              <div style="width: 40%; height: 100%">
-                <p style="font-size: 12px; color: grey; font-weight: bold">
-                  Humedity: 64%
-                </p>
-              </div>
-              <div style="width: 30%; height: 100%">
-                <p style="font-size: 12px; color: grey; font-weight: bold">
-                  Northwest
-                </p>
-              </div>
-              <div style="width: 30%; height: 100%">
-                <p style="font-size: 12px; color: grey; font-weight: bold">
-                  8.3 km/h
-                </p>
-              </div>
-            </div>
-          </div>
+          <current-weather
+            v-for="(city, index) of currentWeatherFr"
+            :key="index"
+            :style="city.styleCard"
+            :data="city"
+          ></current-weather>
           <div
             class="card"
             style="
@@ -321,27 +181,113 @@
 
 <script>
 // @ is an alias to /src
+import DayForecast from "@/components/DayForecast.vue";
+import CurrentWeather from "@/components/CurrentWeather.vue";
 
 export default {
   name: "Forecast",
+  components: {
+    DayForecast,
+    CurrentWeather,
+  },
+  computed: {
+    currentTemp() {
+      return Math.round(this.currentWeatherBog.main.temp);
+    },
+  },
+  data() {
+    return {
+      daysForecast: [],
+      currentWeatherBog: [],
+      currentWeatherFr: [],
+      urlIcon: "http://openweathermap.org/img/w/",
+    };
+  },
   mounted() {
-    this.$http
-      .get(
-        "https://api.openweathermap.org/data/2.5/onecall?lat=4.6097&lon=-74.0817&exclude=hourly,minutely,current&units=metric&appid=f8e7c83b8d24e6bbafac702ccd3e2b64"
-      )
-      .then(
-        (response) => {
-          // get body data
-
-          for (let day of response.body.daily) {
-            console.log(this.date.parseDay(day.dt * 1000).split(" ")[0]);
+    this.init();
+  },
+  methods: {
+    init() {
+      this.getCurrentWeatherBog();
+      this.getCurrentWeatherLy();
+      this.getCurrentWeatherFr();
+      this.getDaysForecast();
+    },
+    getCurrentWeatherBog() {
+      this.$http
+        .get(
+          "https://api.openweathermap.org/data/2.5/weather?lat=4.6097&lon=-74.0817&units=metric&appid=f8e7c83b8d24e6bbafac702ccd3e2b64"
+        )
+        .then(
+          (response) => {
+            // get body data
+            this.currentWeatherBog = response.body;
+            this.urlIcon += this.currentWeatherBog.weather[0].icon + ".png";
+            //console.log(this.currentWeatherBog);
+          },
+          (response) => {
+            console.log(response);
+            // error callback
           }
-        },
-        (response) => {
-          console.log(response);
-          // error callback
-        }
-      );
+        );
+    },
+    getCurrentWeatherLy() {
+      this.$http
+        .get(
+          "https://api.openweathermap.org/data/2.5/weather?lat=45.7485&lon=4.8467&units=metric&appid=f8e7c83b8d24e6bbafac702ccd3e2b64"
+        )
+        .then(
+          (response) => {
+            // get body data
+            this.currentWeatherFr[0] = response.body;
+            this.currentWeatherFr[0].styleCard = { top: "-115px" };
+          },
+          (response) => {
+            console.log(response);
+            // error callback
+          }
+        );
+    },
+    getCurrentWeatherFr() {
+      this.$http
+        .get(
+          "https://api.openweathermap.org/data/2.5/weather?q=Paris&units=metric&appid=f8e7c83b8d24e6bbafac702ccd3e2b64"
+        )
+        .then(
+          (response) => {
+            // get body data
+            this.currentWeatherFr[1] = response.body;
+            this.currentWeatherFr[1].styleCard = { top: "-95px" };
+            //console.log(this.currentWeatherFr);
+          },
+          (response) => {
+            console.log(response);
+            // error callback
+          }
+        );
+    },
+    getDaysForecast() {
+      this.$http
+        .get(
+          "https://api.openweathermap.org/data/2.5/onecall?lat=4.6097&lon=-74.0817&exclude=hourly,minutely,current&units=metric&appid=f8e7c83b8d24e6bbafac702ccd3e2b64"
+        )
+        .then(
+          (response) => {
+            // get body data
+            let daily = response.body.daily;
+            daily.shift(); //delete current day
+
+            for (let day = 1; day <= 3; day++) {
+              this.daysForecast.push(daily.shift());
+            }
+            //console.log(this.daysForecast);
+          },
+          (response) => {
+            console.log(response);
+            // error callback
+          }
+        );
+    },
   },
 };
 </script>
