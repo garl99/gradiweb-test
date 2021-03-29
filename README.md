@@ -1,4 +1,4 @@
-# test-gradiweb
+# Gradiweb Test
 
 ## Project setup
 ```
@@ -15,10 +15,26 @@ npm run serve
 npm run build
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+### Technologies
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+* VueJS 2
+* HTML5
+* SASS
+* JavaScript
+
+### Features
+
+* Responsive Design
+* Data and documentation provided by [OpenWeather](https://openweathermap.org/)
+
+### Deployed on DigitalOcean
+
+[Demo](https://gradiweb-test-t276y.ondigitalocean.app/)
+
+
+### Screenshot
+
+<img src="https://github.com/garl99/gradiweb-test/blob/develop/src/assets/screenshot-2.png" width="80%"/>
+
+
+
