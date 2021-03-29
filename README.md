@@ -19,5 +19,8 @@ npm run build
 
 [Demo](https://gradiweb-test-t276y.ondigitalocean.app/)
 
+### Screenshots
+<img src="https://github.com/garl99/gradiweb-test/blob/develop/src/assets/screenshot.png" width="80%"/>
+
 
 
