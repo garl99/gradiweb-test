@@ -1,4 +1,4 @@
-# test-gradiweb
+# Gradiweb Test
 
 ## Project setup
 ```
@@ -15,10 +15,9 @@ npm run serve
 npm run build
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+### Deployed on DigitalOcean
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+[Demo](https://gradiweb-test-t276y.ondigitalocean.app/)
+
+
+
