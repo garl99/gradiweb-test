@@ -1,0 +1,792 @@
+.home {
+  width: 100%;
+  height: 100vh;
+  .wrap-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .header-section {
+      display: flex;
+      justify-content: center;
+      .location {
+        position: absolute;
+        width: 300px;
+        top: 10%;
+        left: 18%;
+        display: flex;
+        flex-direction: column;
+        .location-name {
+          font-size: 28px;
+          color: #343588;
+          text-align: left;
+        }
+      }
+      .weather {
+        width: 92%;
+        height: 360px;
+        margin-top: 3%;
+        border-radius: 50px;
+        overflow: hidden;
+        .bogota-weather {
+          position: absolute;
+          top: 120px;
+          left: 0px;
+          width: 120px;
+          height: 170px;
+          background-color: #7c6ce4;
+          border-radius: 30px 30px 30px 0;
+          .weather-icon {
+            width: 100%;
+            height: 95px;
+            background-color: #343588;
+            border-radius: 0 30px 30px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          }
+          .weather-temp {
+            width: 100%;
+            height: 75px;
+            background-color: #7c6ce4;
+            border-radius: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+          .weather-temp::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            background-color: transparent;
+            bottom: -80px;
+            left: 0px;
+            height: 80px;
+            width: 50px;
+            border-top-left-radius: 25px;
+            box-shadow: 0 -25px 0 0 #7c6ce4;
+          }
+          .weather-icon::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            background-color: transparent;
+            top: -50px;
+            left: 0px;
+            height: 50px;
+            width: 50px;
+            border-bottom-left-radius: 25px;
+            box-shadow: 0 25px 0 0 #343588;
+          }
+        }
+      }
+    }
+    .main-section {
+      display: flex;
+      justify-content: flex-start;
+      width: 92%;
+      height: 450px;
+      margin-top: 1%;
+      .days-forecast {
+        width: 25%;
+        margin-right: 10px;
+        margin-top: 20px;
+        height: 82%;
+        border-radius: 30px;
+        .forecast-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding-top: 25px;
+          height: 72%;
+          .component {
+            width: 85%;
+            height: 33%;
+            background-color: #fff;
+            border-top: solid 1px rgba(128, 128, 128, 0.3);
+            border-left: solid 1px rgba(128, 128, 128, 0.3);
+            border-bottom: solid 1px rgba(128, 128, 128, 0.3);
+            border-radius: 20px;
+            margin-top: 10px;
+            display: flex;
+            flex-direction: row;
+            .component-icon {
+              width: 20%;
+              height: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+            }
+            .component-info {
+              width: 40%;
+              height: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              .day {
+                margin: 0;
+                margin-bottom: 3px;
+                padding: 0 10px;
+                text-align: left;
+                font-size: 14.5px;
+                color: grey;
+              }
+              .condition {
+                margin: 0;
+                margin-bottom: 3px;
+                padding: 0 10px;
+                text-align: left;
+                font-size: 12px;
+                color: grey;
+              }
+            }
+            .component-temp {
+              width: 40%;
+              height: 100%;
+              background-color: #7c6ce4;
+              border-radius: 20px;
+              display: flex;
+              align-items: center;
+              .temp {
+                width: 100%;
+                text-align: center;
+                margin: 0;
+                font-size: 15px;
+                color: #fff;
+              }
+            }
+          }
+        }
+      }
+      .places-visit {
+        width: 22%;
+        margin-right: 10px;
+        margin-top: 20px;
+        height: 82%;
+        border-radius: 30px;
+        .places-container {
+          height: 72%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding-top: 25px;
+          height: 90%;
+          .shape {
+            width: 90%;
+            height: 78%;
+            background-color: #fff;
+            border: solid 1px rgba(128, 128, 128, 0.3);
+            border-radius: 40px;
+            margin-top: 10px;
+            overflow: hidden;
+            position: relative;
+          }
+        }
+      }
+      .other-info {
+        width: 22%;
+        margin-right: 10px;
+        margin-top: 20px;
+        height: 82%;
+        border-radius: 30px;
+        .first-container {
+          width: 100%;
+          height: 10%;
+          text-align: left;
+          padding: 0px 20px;
+          font-size: 16px;
+          margin-bottom: 0;
+          margin-top: 20px;
+          display: flex;
+          flex-direction: row;
+          .title-container {
+            width: 50%;
+            .title-o {
+              margin: 0;
+              padding-top: 5px;
+              color: grey;
+              font-size: 16px;
+            }
+          }
+          .profiles-container {
+            width: 60%;
+            display: flex;
+            padding-top: 3px;
+            .profile {
+              width: 20px;
+              height: 20px;
+              margin-right: 3px;
+              border-radius: 5px;
+              overflow: hidden;
+            }
+            .more-profiles {
+              width: 20px;
+              height: 20px;
+              background-color: #7c6ce4;
+              color: #fff;
+              margin-right: 3px;
+              border-radius: 5px;
+              display: flex;
+              justify-content: center;
+            }
+          }
+        }
+        .second-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding-top: 25px;
+          height: 90%;
+          .other-shape-a {
+            width: 90%;
+            height: 25%;
+            background-color: #fff;
+            border: solid 1px rgba(128, 128, 128, 0.3);
+            border-radius: 30px;
+            margin-top: 10px;
+            overflow: hidden;
+            position: relative;
+          }
+          .other-shape-b {
+            width: 90%;
+            height: 47%;
+            background-color: #fff;
+            border: solid 1px rgba(128, 128, 128, 0.3);
+            border-radius: 40px;
+            margin-top: 20px;
+            overflow: hidden;
+            position: relative;
+            .more {
+              position: absolute;
+              top: 0;
+              right: 0;
+              width: 30%;
+              height: 100%;
+              background-color: #7c6ce4;
+              border-radius: 40px;
+              z-index: 999;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+            }
+          }
+        }
+      }
+      .france-section {
+        width: 25%;
+        height: 90%;
+        .title {
+          display: none;
+        }
+        .card {
+          position: relative;
+          width: 100%;
+          height: 130px;
+          background-color: #fff;
+          border-radius: 30px;
+          box-shadow: 0 4px 25px -2px grey;
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
+          .add-buttom {
+            width: 80%;
+            border: 0;
+            outline: none;
+            align-self: center;
+            padding: 15px 50px;
+            border-radius: 50px;
+            margin-top: 15px;
+            background-color: rgba(124, 108, 228, 0.2);
+            color: rgba(124, 108, 228, 1);
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+.lds-dual-ring {
+  display: inline-block;
+  margin-top: 30%;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 3px solid #000;
+  border-color: #000 transparent #000 transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+//COMMON
+
+.responsive-image-half {
+  width: 50%;
+  height: auto;
+}
+.responsive-image-full {
+  width: 100%;
+  height: auto;
+}
+
+.background-light {
+  background-color: #e4ecf4 !important;
+}
+
+.font-black {
+  color: #000 !important;
+}
+.title {
+  height: 10%;
+  text-align: left;
+  padding: 0px 20px;
+  font-size: 24px;
+  margin-bottom: 0;
+  margin-top: 20px;
+  padding-left: 10%;
+}
+
+.background-over {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(51, 51, 51, 0.3);
+}
+
+.shape-info {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  z-index: 10;
+}
+
+.shape-title {
+  font-size: 14px;
+  color: #fff;
+  text-align: left;
+}
+
+.header-card {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  .icon-container {
+    width: 35%;
+    height: 100%;
+    background-color: #e4ecf4;
+    border-radius: 0 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .weather-container {
+    width: 65%;
+    height: 100%;
+    border-radius: 0 20px 20px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    .temp-container {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .celsius {
+        font-size: 28px;
+        margin: 0;
+        padding: 2px 0px 2px 10px;
+        border-right: solid 2px rgba(128, 128, 128, 0.2);
+      }
+    }
+    .city-container {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .city {
+        margin: 0;
+        text-align: left;
+        padding-left: 20px;
+        font-size: 18px;
+      }
+      .country {
+        margin: 0;
+        text-align: left;
+        padding-left: 20px;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.footer-card {
+  width: 100%;
+  height: 40%;
+  display: flex;
+  flex-direction: row;
+}
+
+// RESPONSIVE IPAD PRO 1024px
+
+@media screen and (max-width: 1024px) {
+  .location {
+    top: 3% !important;
+    left: 20% !important;
+  }
+  .lds-dual-ring {
+    margin-top: 10% !important;
+    margin-left: 25px !important;
+  }
+  .shape-title {
+    width: 100px !important;
+    font-size: 14px;
+    color: #fff;
+    text-align: left;
+  }
+}
+// RESPONSIVE IPAD 768px
+@media screen and (max-width: 768px) {
+  .header-section {
+    .weather {
+      height: 300px !important;
+      .bogota-weather {
+        top: 80px !important;
+      }
+    }
+  }
+  .main-section {
+    flex-direction: column;
+    height: auto;
+    .days-forecast {
+      width: 100% !important;
+      height: auto !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .forecast-container {
+        padding-top: 15px;
+        height: auto !important;
+        .component {
+          width: 320px !important;
+          height: 100px !important;
+          .component-info {
+            .day {
+              font-size: 18px !important;
+            }
+            .condition {
+              font-size: 16px !important;
+            }
+          }
+          .component-temp {
+            .temp {
+              font-size: 20px !important;
+            }
+          }
+        }
+      }
+    }
+    .places-visit {
+      width: 100% !important;
+      height: auto !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 25px;
+      .places-container {
+        .shape {
+          width: 50% !important;
+          height: 400px !important;
+          .shape-title,
+          span {
+            font-size: 16px !important;
+          }
+        }
+      }
+    }
+    .other-info {
+      width: 100% !important;
+      height: auto !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 25px;
+      .first-container {
+        width: 95% !important;
+        height: auto !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column !important;
+        .profiles-container {
+          width: 40% !important;
+          justify-content: center;
+          .profile,
+          .more-profiles {
+            width: 30px !important;
+            height: 30px !important;
+          }
+          .more-profiles {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            strong {
+              font-size: 16px !important;
+            }
+          }
+        }
+        .title-container {
+          width: 30% !important;
+          margin-bottom: 10px;
+          display: flex;
+          justify-content: center;
+          .title-o {
+            font-size: 24px !important;
+            span {
+              font-size: 18px !important;
+            }
+          }
+        }
+      }
+      .second-container {
+        .other-shape-a {
+          width: 60% !important;
+          height: 150px !important;
+          .shape-info {
+            strong,
+            span {
+              font-size: 16px !important;
+            }
+          }
+        }
+        .other-shape-b {
+          width: 60% !important;
+          height: 250px !important;
+          border-radius: 50px !important;
+          .more {
+            border-radius: 50px !important;
+          }
+          .shape-info {
+            strong,
+            span {
+              font-size: 16px !important;
+            }
+          }
+        }
+      }
+    }
+    .france-section {
+      width: 100% !important;
+      height: auto !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 25px;
+      .title {
+        display: block !important;
+        padding: 0;
+        margin-bottom: 10px;
+      }
+      .card {
+        position: static !important;
+        width: 50% !important;
+        margin-bottom: 30px;
+        box-shadow: none !important;
+        border: solid 1px rgba(128, 128, 128, 0.3);
+        .city-icon {
+          img {
+            width: 80% !important;
+          }
+        }
+      }
+    }
+  }
+
+  .title {
+    padding: 0;
+    text-align: center;
+  }
+}
+
+// RESPONSIVE MOBILE < 450px
+@media screen and (max-width: 450px) {
+  .header-section {
+    display: flex;
+    justify-content: center;
+    .location {
+      width: 150px !important;
+      top: 2% !important;
+      .location-name {
+        font-size: 18px !important;
+        margin-bottom: 0;
+        span {
+          font-size: 20px !important;
+        }
+      }
+    }
+    .weather {
+      height: 180px !important;
+      .bogota-weather {
+        top: 5% !important;
+        width: 60px !important;
+        height: 120px !important;
+        .weather-icon {
+          height: 70px !important;
+          border-radius: 0 20px 15px 15px !important;
+          img {
+            width: 75% !important;
+          }
+        }
+        .weather-temp {
+          height: 50px !important;
+          border-radius: 0 20px 15px 15px !important;
+          p {
+            font-size: 18px !important;
+          }
+        }
+      }
+    }
+  }
+  .main-section {
+    .days-forecast {
+      .forecast-container {
+        padding-top: 15px;
+        height: auto !important;
+        .component {
+          width: 220px !important;
+          height: 80px !important;
+          .component-info {
+            .day {
+              font-size: 12.5px !important;
+            }
+            .condition {
+              font-size: 12px !important;
+            }
+          }
+          .component-temp {
+            .temp {
+              font-size: 14px !important;
+            }
+          }
+        }
+      }
+    }
+    .places-visit {
+      .places-container {
+        .shape {
+          width: 65% !important;
+          height: 250px !important;
+          .shape-title,
+          span {
+            font-size: 14px !important;
+          }
+        }
+      }
+    }
+    .other-info {
+      .first-container {
+        .profiles-container {
+          .profile,
+          .more-profiles {
+            width: 25px !important;
+            height: 25px !important;
+          }
+          .more-profiles {
+            strong {
+              font-size: 12px !important;
+              margin-top: 0 !important;
+            }
+          }
+        }
+        .title-container {
+          width: 50% !important;
+          .title-o {
+            font-size: 18px !important;
+            span {
+              font-size: 18px !important;
+            }
+          }
+        }
+      }
+      .second-container {
+        .other-shape-a {
+          width: 70% !important;
+          height: 100px !important;
+          .shape-info {
+            strong,
+            span {
+              font-size: 14px !important;
+            }
+          }
+        }
+        .other-shape-b {
+          width: 70% !important;
+          height: 150px !important;
+          border-radius: 40px !important;
+          .more {
+            border-radius: 40px !important;
+          }
+          .shape-info {
+            strong,
+            span {
+              font-size: 14px !important;
+            }
+          }
+        }
+      }
+    }
+    .france-section {
+      .card {
+        position: static !important;
+        width: 75% !important;
+        margin-bottom: 30px;
+        .header-card {
+          .weather-container {
+            .temp-container {
+              .celsius {
+                font-size: 24px !important;
+              }
+            }
+          }
+        }
+        .city-icon {
+          img {
+            width: 80% !important;
+          }
+        }
+      }
+    }
+  }
+
+  .title {
+    padding: 0;
+    text-align: center;
+    font-size: 18px;
+  }
+  .lds-dual-ring {
+    margin-top: 15% !important;
+    margin-left: 25px !important;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .lds-dual-ring {
+    margin-top: 50% !important;
+    margin-left: 25% !important;
+  }
+}
