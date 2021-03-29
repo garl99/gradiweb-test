@@ -15,12 +15,26 @@ npm run serve
 npm run build
 ```
 
+### Technologies
+
+* VueJS 2
+* HTML5
+* SASS
+* JavaScript
+
+### Features
+
+* Responsive Design
+* Data and documentation provided by [OpenWeather](https://openweathermap.org/)
+
 ### Deployed on DigitalOcean
 
 [Demo](https://gradiweb-test-t276y.ondigitalocean.app/)
 
-### Screenshots
-<img src="https://github.com/garl99/gradiweb-test/blob/develop/src/assets/screenshot.png" width="80%"/>
+
+### Screenshot
+
+<img src="https://github.com/garl99/gradiweb-test/blob/develop/src/assets/screenshot-2.png" width="80%"/>
 
 
 
