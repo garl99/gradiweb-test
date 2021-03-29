@@ -34,7 +34,7 @@ npm run build
 
 ### Screenshot
 
-<img src="https://github.com/garl99/gradiweb-test/blob/develop/src/assets/screenshot-2.png" width="80%"/>
+<img src="https://github.com/garl99/gradiweb-test/blob/master/src/assets/screenshot-3.png" width="80%"/>
 
 
 
